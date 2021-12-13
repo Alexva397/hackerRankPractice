@@ -2,7 +2,7 @@
 
 const timeconversion = (time) => {
     const amPm = time.slice(8,10);
-    
+    console.log(amPm)
     const splitTime = time.slice(0,8).split(':');
 
     let hours = parseInt(splitTime[0]);
@@ -13,7 +13,7 @@ const timeconversion = (time) => {
         hours = hours + 12;
         hours.toString()
     }  else if (hours !== 12 && amPm === 'AM') {
-        hours = '0' + hours
+        // hours = '0' + hours
         hours.toString()
     } else {
         hours.toString()
