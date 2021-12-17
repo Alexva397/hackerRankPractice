@@ -1,33 +1,22 @@
 
-s = 8;
-p = 'UDDDUDUU';
-
 function countingValleys(steps, path) {
-    let a = Array.from(path);
-    let valleys=0;
-    let pos=0;
-    let prevpos=0;
-    
-    for(let i=0;i<a.length;i++){
-    if(a[i]==='U'){
-    prevpos=pos++;
-    console.log('pos U:', pos)
-    console.log('prevpos U:',a[i], prevpos)
-    if(pos===0){
-    valleys++;
+    const arr = path.split("");
+    let elevation = 0;
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === "D") {
+            elevation--;
+        } else {
+            if (elevation === -1) {
+                elevation++;
+                count++;
+            } else if (elevation < -1 || elevation > -1) {
+                elevation++;
+            }
+        }
     }
-    }else{
-        console.log('pos D B4:', pos)
+    return count;
+}
 
-    prevpos = pos--;
-    console.log('pos D:', pos)
-    console.log('prevpos D:',a[i], prevpos)
-    console.log('valleys:', valleys)
-    }
-    }
-    console.log(valleys)
-    return valleys;
-    
-    }
-    
-countingValleys(s,p)    
+
+countingValleys(8,"UDDDUDUU");    

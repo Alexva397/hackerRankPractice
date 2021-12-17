@@ -1,20 +1,21 @@
 function repeatedString(s, n) {
-    // Write your code here
-    const stringLength = s.length;
-    const remainder = n % stringLength;
-    const quotient =  (n - n % stringLength) / stringLength;
-    let newString = [];
-    for (let i = 0; i < quotient; i++) {
-        newString.push(s)
+    let aCount = 0;
+    if (n > s.length) {
+        for (const char of s) {
+            if (char === "a") {
+                aCount++;
+            }
+        }
+    aCount = aCount * Math.floor(n / s.length);
     }
-    const remS = s.slice(0,remainder);
-    newString.push(remS)
-    const joined = newString.join('');
-    let count = 0;
-    for (let j = 0; j < joined.length; j++) {
-        if (joined[j] === 'a') count++;
+
+    for (let i = 0 ; i < n % s.length; i++) {
+        if (s[i] === "a") {
+            aCount++;
+        }
     }
-    return count;
+    console.log(aCount)
+    return aCount;
 }
 
 repeatedString('abcac', 10);
