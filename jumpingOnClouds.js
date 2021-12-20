@@ -4,7 +4,9 @@
 const c = [0,0,1,0,0,1,0];
 
 const jumpingOnClouds = (c) => {
-    let current = 0;
+
+    // initiate current and jump count
+    let current = 1;
     let jumps = 0;
     do {
         if (c[current + 2] === 0) {
@@ -14,7 +16,8 @@ const jumpingOnClouds = (c) => {
             jumps++;
             current++;
         }
-    } while (current < c.length - 1);
+    } while (current < c.length);
+    console.log(jumps);
     return jumps;
 }
 
